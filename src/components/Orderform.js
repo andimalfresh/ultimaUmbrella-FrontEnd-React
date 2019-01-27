@@ -7,6 +7,9 @@ return (
         <div className="componentContainer">
                 Order Form
             <div className="contentDiv">
+            <select>
+                <option value="volvo">Select a Distributor</option>
+            </select>
                  <ul className="orderList"> 
                      <li>
                          <div className="orderItem">

@@ -15,6 +15,10 @@ import { Link } from "react-router-dom"
 const usersAPI = "https://uumbrella.herokuapp.com/users"
 const productsAPI = "https://uumbrella.herokuapp.com/products"
 
+var loadList = () => {
+  document.querySelector(".userList")
+}
+
 class App extends Component {
 
   constructor() {
@@ -55,13 +59,13 @@ loadProducts = () => {
           </div>
         </div></Link>   
           <Route path ="/" exact component={Login} />
-          <Route path ="/signup" render={() => (<Signup />)}/>
-          <Route path ="/mainpage" render={() => (<Mainpage />)}/>
-          <Route path ="/addaccount" render={() => (<Addaccount />)}/>
-          <Route path ="/addproducts" render={() => (<Addproducts />)}/>
-          <Route path ="/filterproducts" render={() => (<Filterproducts />)}/>
-          <Route path ="/orderform" render={() => (<Orderform />)}/>
-          <Route path ="/orderconfirmform" render={() => (<Orderconfirmform />)}/>
+          <Route path ="/signup" render={() => (<Signup users={this.state.users} />)}/>
+          <Route path ="/mainpage" render={() => (<Mainpage users={this.state.users} products={this.state.products}/>)}/>
+          <Route path ="/addaccount" render={() => (<Addaccount users={this.state.users} products={this.state.products}/>)}/>
+          <Route path ="/addproducts" render={() => (<Addproducts users={this.state.users} products={this.state.products}/>)}/>
+          <Route path ="/filterproducts" render={() => (<Filterproducts users={this.state.users} products={this.state.products}/>)}/>
+          <Route path ="/orderform" render={() => (<Orderform users={this.state.users} products={this.state.products}/>)}/>
+          <Route path ="/orderconfirmform" render={() => (<Orderconfirmform users={this.state.users} products={this.state.products}/>)}/>
           <Route path ="/thankyou" render={() => (<Thankyou />)}/>
       </div>
     );

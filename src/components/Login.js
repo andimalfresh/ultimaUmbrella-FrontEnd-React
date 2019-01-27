@@ -11,7 +11,7 @@ return (
                     <label>Login:</label>
                     <input name="login" placeholder="enter username"/>
                     <label>Password:</label>
-                    <input name="password" placeholder="enter password"/>
+                    <input name="password" placeholder="enter password" crypt="bcrypt"  work="cost:11" salt="username"/>
                 </form>
                 <div className="buttonRow">
                         <Link to={"/mainpage"}><button>Login</button></Link>

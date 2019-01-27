@@ -22,7 +22,7 @@ return (
             <input name="description" placeholder="enter product description"/>
             <div className="buttonRow">
             <Link to={"/mainpage"}><button>Main Menu</button></Link>
-            <button>Save Product</button>
+            <Link to={"/addproduct"}><button>Save Product</button></Link>
             </div>
         </form>
         </div>

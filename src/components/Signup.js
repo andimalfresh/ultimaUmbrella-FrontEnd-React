@@ -14,8 +14,36 @@ return (
                     <input name="password" placeholder="Password"/>
                     <label>company</label>
                     <input name="password" placeholder="Company"/>
-                    <label>distributor</label>
-                    <input name="dist_boolean" placeholder="Distributor"/>
+
+                    <label>Distributor ?</label>
+                    <div className="distributor">
+                        
+                        <label> 
+                            <input 
+                                type="radio" 
+                                name="distributor" 
+                                value="true"
+                                // checked={distributor === true}
+                                // onChange={this._handleRadio} 
+                                />
+                                Yes
+                        </label>
+                    </div>
+                    <div className="radio">
+                        <label>
+                            <input 
+                                type="radio" 
+                                name="distributor" 
+                                value="false"
+                                // checked={distributor === false}
+                                // onChange={this._handleRadio} 
+                                />
+                                No
+                        </label>
+                    </div>
+
+
+
                     <label>email</label>
                     <input name="email" placeholder="Email"/>
                     <label>phonenumber</label>
