@@ -6,9 +6,6 @@ const Filterproducts  = props => {
 return (
     <div className="componentContainer">
         Filter Products
-        <div className="navMenu">
-          NavMenu  
-        </div>
         <div className="contentDiv">
             <select>
                 <option value="volvo">Select a Distributor</option>

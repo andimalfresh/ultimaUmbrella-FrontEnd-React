@@ -13,6 +13,8 @@ return (
             <div className="buttonRow">
             <Link to={"/mainpage"}><button>Main Menu </button></Link>
                                     <button>Add Account</button>
+                                    {/* //add account sets isUSED to true */}
+                                    <button>Delete Acct</button>
             </div>
         </div>
     </div>

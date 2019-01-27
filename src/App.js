@@ -12,18 +12,48 @@ import Orderconfirmform from "./components/Orderconfirmform"
 import Thankyou from "./components/Thankyou"
 import { Link } from "react-router-dom"
 
+const usersAPI = "https://uumbrella.herokuapp.com/users"
+const productsAPI = "https://uumbrella.herokuapp.com/products"
+
 class App extends Component {
+
+  constructor() {
+    super () 
+    this.state = {
+      users: [],
+      userActive: 2,
+      products: [],
+      isSignedUp: false,
+    }
+  }
+  async componentDidMount () {
+    this.loadUsers()
+    this.loadProducts()
+  }
+
+loadUsers = () => {
+  fetch(usersAPI)
+  .then(response => response.json())
+  .then(responce => this.setState({users: responce}))
+}
+loadProducts = () => {
+  fetch(productsAPI)
+  .then(res => res.json())
+  .then(res => this.setState({products: res}))
+}
+
   render() {
     return (
       <div className="App">
+        <Link to={"/"}>
         <div className="title">
           <div className="uulogo">
             <img className="umbrella" alt="ultimaUmbrella" src={require('./components/ultimaUmbrella.png')} />
           </div>
           <div className="titleText">
-          <Link to={"/"}>Ultima Umbrella</Link>
+              Ultima Umbrella
           </div>
-        </div>   
+        </div></Link>   
           <Route path ="/" exact component={Login} />
           <Route path ="/signup" render={() => (<Signup />)}/>
           <Route path ="/mainpage" render={() => (<Mainpage />)}/>
