@@ -20,7 +20,9 @@ class App extends Component {
           <div className="uulogo">
             <img className="umbrella" alt="ultimaUmbrella" src={require('./components/ultimaUmbrella.png')} />
           </div>
+          <div className="titleText">
           <Link to={"/"}>Ultima Umbrella</Link>
+          </div>
         </div>   
           <Route path ="/" exact component={Login} />
           <Route path ="/signup" render={() => (<Signup />)}/>

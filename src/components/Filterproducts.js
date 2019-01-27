@@ -5,19 +5,19 @@ const Filterproducts  = props => {
 
 return (
     <div className="componentContainer">
-        Add Products
+        Filter Products
         <div className="navMenu">
           NavMenu  
         </div>
         <div className="contentDiv">
-        <select>
-            <option value="volvo">Select a Distributor</option>
-        </select>
-        <span> THIS IS WHERE PRODUCTS ARE MAPPED WITH A TRUE/FALSE SLIDER NEXT TO THEM</span>
-        </div>
-        <div className="buttonRow">
-        <Link to={"/mainpage"}><button>Main Menu</button></Link>
+            <select>
+                <option value="volvo">Select a Distributor</option>
+            </select>
+            <span> THIS IS WHERE PRODUCTS ARE MAPPED WITH A TRUE/FALSE SLIDER NEXT TO THEM</span>
+            <div className="buttonRow">
+                <Link to={"/mainpage"}><button>Main Menu</button></Link>
                 <button>Save Products</button>
+            </div>
         </div>
     </div>
     )

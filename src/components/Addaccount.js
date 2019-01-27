@@ -10,14 +10,15 @@ return (
           NavMenu  
         </div>
         <div className="contentDiv">
-        <select>
-            <option value="volvo">Select a Distributor</option>
-        </select>
+            <select>
+                <option value="volvo">Select a Distributor</option>
+            </select>
+            <div className="buttonRow">
+            <Link to={"/mainpage"}><button>Main Menu </button></Link>
+                                    <button>Add Account</button>
+            </div>
         </div>
-        <div className="buttonRow">
-        <Link to={"/mainpage"}><button>Main Menu </button></Link>
-                                <button>Add Account</button>
-        </div>
+
     </div>
     )
 
