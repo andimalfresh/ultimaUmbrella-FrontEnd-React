@@ -13,11 +13,8 @@ import Thankyou from "./components/Thankyou"
 import { Link } from "react-router-dom"
 
 const usersAPI = "https://uumbrella.herokuapp.com/users"
-const productsAPI = "https://uumbrella.herokuapp.com/products"
 
-var loadList = () => {
-  document.querySelector(".userList")
-}
+const grabDrop = document.getElementById("#dropDown")
 
 class App extends Component {
 
@@ -30,23 +27,53 @@ class App extends Component {
       isSignedUp: false,
     }
   }
-  async componentDidMount () {
-    this.loadUsers()
-    this.loadProducts()
+
+  async componentDidMount() {
+    let responce = await fetch(usersAPI)
+    let json = await responce.json()
+    console.log("jsonlog", json)
+    this.setState ({
+      users: json
+    })
   }
 
-loadUsers = () => {
-  fetch(usersAPI)
-  .then(response => response.json())
-  .then(responce => this.setState({users: responce}))
-}
-loadProducts = () => {
-  fetch(productsAPI)
-  .then(res => res.json())
-  .then(res => this.setState({products: res}))
-}
+  // async componentDidMount() {
+  //   let responce = await fetch(productsAPI)
+  //   let json = await responce.json()
+  //   console.log("jsonlog", json)
+  //   this.setState ({
+  //     products: json
+  //   })
+  // }
 
+  // async componentDidMount () {
+  //   this.loadUsers()
+  //   this.loadProducts()
+  // }
+
+// loadUsers = () => {
+//   fetch(usersAPI)
+//   .then(response => response.json())
+//   .then(responce => this.setState({users: responce}))
+// }
+// loadProducts = () => {
+//   fetch(productsAPI)
+//   .then(res => res.json())
+//   .then(res => this.setState({products: res}), console.log(this.state.products))
+// }
+menus = () => {
+  for (let i = 0; i < this.state.users.length; i++) {
+      var dropdownMenu = document.createElement("option")
+      grabDrop.appendChild(dropdownMenu)
+      dropdownMenu.innerHTML = this.state.users[i].company_acct_name
+      var item = JSON.stringify({
+          name: this.state.users[i].company_acct_name,
+      })
+      dropdownMenu.setAttribute('value', item)
+  }
+}
   render() {
+    console.log(this.state.users)
     return (
       <div className="App">
         <Link to={"/"}>
@@ -68,7 +95,7 @@ loadProducts = () => {
           <Route path ="/orderconfirmform" render={() => (<Orderconfirmform users={this.state.users} products={this.state.products}/>)}/>
           <Route path ="/thankyou" render={() => (<Thankyou />)}/>
       </div>
-    );
+    )
   }
 }
 

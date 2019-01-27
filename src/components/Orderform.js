@@ -1,15 +1,25 @@
-import React from "react"
+import React, {Fragment} from "react"
 import { Link } from "react-router-dom"
 
 const Orderform  = props => {
+    let movieList = props.users.map(userList => {
+        return (
+            <Fragment>
+                <ul className="list-group-item d-flex justify-content-between">
+                    <li>{userList.id}</li>
+                </ul>
+            </Fragment>
+        )
+    })
 
 return (
         <div className="componentContainer">
                 Order Form
             <div className="contentDiv">
             <select>
-                <option value="volvo">Select a Distributor</option>
-            </select>
+                <option value="volvo"></option>
+            </select>{movieList}
+
                  <ul className="orderList"> 
                      <li>
                          <div className="orderItem">
@@ -59,8 +69,6 @@ return (
             </div>
         </div>
     )
-
-
 }
 
 export default Orderform
