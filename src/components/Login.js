@@ -7,9 +7,11 @@ return (
         <div className="componentContainer">
             Welcome To Ultima Umbrella
             <div className="contentDiv">
-                <form>
-                    <input name="login" placeholder="Login"/>
-                    <input name="password" placeholder="Password"/>
+                <form className="loginForm">
+                    <label>Login:</label>
+                    <input name="login" placeholder="enter username"/>
+                    <label>Password:</label>
+                    <input name="password" placeholder="enter password"/>
                 </form>
                 <div className="buttonRow">
                         <Link to={"/mainpage"}><button>Login</button></Link>

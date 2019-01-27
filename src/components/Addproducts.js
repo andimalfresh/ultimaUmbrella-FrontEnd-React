@@ -6,9 +6,6 @@ const Addproducts  = props => {
 return (
     <div className="componentContainer">
         Add Products
-        <div className="navMenu">
-          NavMenu  
-        </div>
         <div className="contentDiv">
         <form>
             <label>name</label>

@@ -6,9 +6,6 @@ const Addaccount  = props => {
 return (
     <div className="componentContainer">
         Add Account 
-        <div className="navMenu">
-          NavMenu  
-        </div>
         <div className="contentDiv">
             <select>
                 <option value="volvo">Select a Distributor</option>
@@ -18,7 +15,6 @@ return (
                                     <button>Add Account</button>
             </div>
         </div>
-
     </div>
     )
 

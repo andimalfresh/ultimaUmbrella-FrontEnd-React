@@ -5,15 +5,12 @@ const Thankyou  = props => {
 
 return (
         <div className="componentContainer">
-        Thank You 
-        <form>
-            <input name="login" placeholder="Login"/>
-            <input name="password" placeholder="Password"/>
-            <div className="buttonRow">
-            <Link to={"/mainpage"}><button>Back to Main Page</button></Link>
-            
+        Thank You for your Order
+            <div className="contentDiv">
+                <div className="buttonRow">
+                <Link to={"/mainpage"}><button>Back to Main Page</button></Link>
+                </div>
             </div>
-        </form>
         </div>
     )
 

@@ -7,10 +7,48 @@ return (
         <div className="componentContainer">
                 Order Form
             <div className="contentDiv">
-                <form>
-                    <input name="login" placeholder="Login"/>
-                    <input name="password" placeholder="Password"/>
-                </form>
+                 <ul className="orderList"> 
+                     <li>
+                         <div className="orderItem">
+                            Order Item
+                         </div>
+                         <div className="orderInput">
+                            Quantity :<input className="itemQuantity" />
+                        </div>
+                    </li>
+                    <li>
+                         <div className="orderItem">
+                            Order Item
+                         </div>
+                         <div className="orderInput">
+                            Quantity :<input className="itemQuantity" />
+                        </div>
+                    </li>
+                    <li>
+                         <div className="orderItem">
+                            Order Item
+                         </div>
+                         <div className="orderInput">
+                            Quantity :<input className="itemQuantity" />
+                        </div>
+                    </li>
+                    <li>
+                         <div className="orderItem">
+                            Order Item
+                         </div>
+                         <div className="orderInput">
+                            Quantity :<input className="itemQuantity" />
+                        </div>
+                    </li>
+                    <li>
+                         <div className="orderItem">
+                            Order Item
+                         </div>
+                         <div className="orderInput">
+                            Quantity :<input className="itemQuantity" />
+                        </div>
+                    </li>
+                 </ul>
                 <div className="buttonRow">
                         <Link to={"/mainpage"}><button>Main Page</button></Link>
                         <Link to={"/orderconfirmform"}><button>Make Order</button></Link>
