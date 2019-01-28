@@ -32,6 +32,10 @@ form label{
   margin-top: 50px;
   margin-bottom:50px;
 }
+.textInput {
+    height:75px;
+    font-size:14pt;
+}
 .umbrella {
   width: 45px;
   height: 45px;

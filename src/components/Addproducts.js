@@ -9,17 +9,17 @@ return (
         <div className="contentDiv">
         <form>
             <label>name</label>
-            <input name="product_name" placeholder="enter name here"/>
+            <input name="product_name" className="textInput" placeholder="enter name here"/>
             <label>password</label>
-            <input name="product_sku" placeholder="enter sku here"/>
+            <input name="product_sku" className="textInput" placeholder="enter sku here"/>
             <label>company</label>
-            <input name="product_size" placeholder="enter size here"/>
+            <input name="product_size" className="textInput" placeholder="enter size here"/>
             <label>distributor</label>
-            <input name="dist_price" placeholder="enter price here"/>
+            <input name="dist_price" className="textInput" placeholder="enter price here"/>
             <label>email</label>
-            <input name="retail_price" placeholder="enter retail price here"/>
+            <input name="retail_price" className="textInput" placeholder="enter retail price here"/>
             <label>phonenumber</label>
-            <input name="description" placeholder="enter product description"/>
+            <input name="description" className="textInput" placeholder="enter product description"/>
             <div className="buttonRow">
             <Link to={"/mainpage"}><button>Main Menu</button></Link>
             <Link to={"/addproduct"}><button>Save Product</button></Link>

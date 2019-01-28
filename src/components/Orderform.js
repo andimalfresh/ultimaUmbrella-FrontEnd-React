@@ -1,66 +1,21 @@
-import React, {Fragment} from "react"
+import React from "react"
 import { Link } from "react-router-dom"
 
 const Orderform  = props => {
-    let movieList = props.users.map(userList => {
-        return (
-            <Fragment>
-                <ul className="list-group-item d-flex justify-content-between">
-                    <li>{userList.id}</li>
-                </ul>
-            </Fragment>
-        )
-    })
 
 return (
         <div className="componentContainer">
                 Order Form
             <div className="contentDiv">
-            <select>
-                <option value="volvo"></option>
-            </select>{movieList}
-
+            <select value={props.value} onChange={props.handleChange}>
+                    <option className="dropOpening" defaultValue>Select An Distributor.</option>
+            {props.users.map((users) => <option>{users.company_acct_name}</option>)}
+            </select>
                  <ul className="orderList"> 
-                     <li>
-                         <div className="orderItem">
-                            Order Item
-                         </div>
-                         <div className="orderInput">
-                            Quantity :<input className="itemQuantity" />
-                        </div>
-                    </li>
-                    <li>
-                         <div className="orderItem">
-                            Order Item
-                         </div>
-                         <div className="orderInput">
-                            Quantity :<input className="itemQuantity" />
-                        </div>
-                    </li>
-                    <li>
-                         <div className="orderItem">
-                            Order Item
-                         </div>
-                         <div className="orderInput">
-                            Quantity :<input className="itemQuantity" />
-                        </div>
-                    </li>
-                    <li>
-                         <div className="orderItem">
-                            Order Item
-                         </div>
-                         <div className="orderInput">
-                            Quantity :<input className="itemQuantity" />
-                        </div>
-                    </li>
-                    <li>
-                         <div className="orderItem">
-                            Order Item
-                         </div>
-                         <div className="orderInput">
-                            Quantity :<input className="itemQuantity" />
-                        </div>
-                    </li>
+                 {/* <select value={props.value} onChange={props.handleChange}>
+                    <option className="dropOpening" defaultValue>Select An Distributor.</option>
+                    {props.users.map((users) => <option>{users.company_acct_name}</option>)}
+                </select> */}
                  </ul>
                 <div className="buttonRow">
                         <Link to={"/mainpage"}><button>Main Page</button></Link>

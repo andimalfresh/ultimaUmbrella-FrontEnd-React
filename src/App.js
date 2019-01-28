@@ -12,7 +12,25 @@ import Orderconfirmform from "./components/Orderconfirmform"
 import Thankyou from "./components/Thankyou"
 import { Link } from "react-router-dom"
 
+
+
+let urls = [
+  'https://uumbrella.herokuapp.com/users',
+  'https://uumbrella.herokuapp.com/products',
+  'https://uumbrella.herokuapp.com/orders'
+];
+
+// map every url to the promise fetch(github url)
+let requests = urls.map(url => fetch(url));
+
+// Promise.all waits until all jobs are resolved
+Promise.all(requests)
+  .then(responses => responses.forEach(
+    response => alert(`${response.url}: ${response.status}`)
+  ));
+
 const usersAPI = "https://uumbrella.herokuapp.com/users"
+const productsAPI = "https://uumbrella.herokuapp.com/products"
 
 const grabDrop = document.getElementById("#dropDown")
 
@@ -32,6 +50,7 @@ class App extends Component {
     let responce = await fetch(usersAPI)
     let json = await responce.json()
     console.log("jsonlog", json)
+    this.loadProducts()
     this.setState ({
       users: json
     })
@@ -56,11 +75,12 @@ class App extends Component {
 //   .then(response => response.json())
 //   .then(responce => this.setState({users: responce}))
 // }
-// loadProducts = () => {
-//   fetch(productsAPI)
-//   .then(res => res.json())
-//   .then(res => this.setState({products: res}), console.log(this.state.products))
-// }
+loadProducts = () => {
+  fetch(productsAPI)
+  .then(res => res.json())
+  .then(res => this.setState({products: res}, console.log(res, "Oi")))
+
+}
 menus = () => {
   for (let i = 0; i < this.state.users.length; i++) {
       var dropdownMenu = document.createElement("option")
@@ -73,7 +93,6 @@ menus = () => {
   }
 }
   render() {
-    console.log(this.state.users)
     return (
       <div className="App">
         <Link to={"/"}>
