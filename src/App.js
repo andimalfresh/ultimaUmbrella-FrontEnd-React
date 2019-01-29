@@ -22,6 +22,7 @@ class App extends Component {
   constructor() {
     super () 
     this.state = {
+      order:[],
       users: [],
       userActive: 2,
       products: [],
@@ -33,8 +34,19 @@ class App extends Component {
       dist_price: "",
       retail_price: "",
       description: "",
-       is_used: true,
-       showItems: false
+      is_used: true,
+      showItems: false,
+      showFilterItems: false,
+      showAccounts:true,
+      user_name: "",
+      password: "",
+      company_acct_name: "",
+      distributor: true,
+      email_address1: "",
+      phone_number1: "",
+      mailing_address: "",
+      delivery_address: "",
+      userSelected: "1"
     }
   }
 
@@ -58,7 +70,11 @@ class App extends Component {
         showItems:true
     })
   }
-  
+  handleSelectedFilter = () => {
+    this.setState({
+        showFilterItems:true
+    })
+  }
   postProduct = () => {
     let post = {
       product_owner: this.state.product_owner, 
@@ -80,6 +96,56 @@ class App extends Component {
     .then(this.movieList)
     .then(alert(`You added the product ${this.state.product_name}`))
   }
+  postUser = () => {
+    let post = {
+      user_name: this.state.user_name, 
+      password: this.state.password, 
+      company_acct_name: this.state.company_acct_name, 
+      distributor: this.state.distributor,
+      email_address1: this.state.email_address1,
+      phone_number1: this.state.phone_number1,
+      mailing_address: this.state.mailing_address,
+      delivery_address: this.state.delivery_address
+    }
+    fetch(usersAPI, {
+      method: "POST", 
+      body: JSON.stringify(post), 
+      headers: {
+        "Content-Type": "application/json", 
+      }
+    })
+    .then (sendProduct => sendProduct.json())
+    .then(this.movieList)
+    .then(alert(`You added a new Account for  ${this.state.company_acct_name}`))
+  }
+  updateUser = () => {
+    let update = {
+      user_name: this.state.user_name, 
+      password: this.state.password, 
+      company_acct_name: this.state.company_acct_name, 
+      distributor: this.state.distributor,
+      email_address1: this.state.email_address1,
+      phone_number1: this.state.phone_number1,
+      mailing_address: this.state.mailing_address,
+      delivery_address: this.state.delivery_address
+    }
+    fetch(`${usersAPI}${this.state.userSelected}`, {
+      method: "PUT", 
+      body: JSON.stringify(update), 
+      headers: {
+        "Content-Type": "application/json", 
+      }
+    })
+    .then(updateUser => updateUser.json())
+    .then(() => this.loadUsers())
+    .then(alert("You updated your User Info!"))
+  }
+  deleteItem = (event) => {
+    fetch(`${productsAPI}1`, {
+      method: "DELETE", 
+    })
+    .then(() => this.loadProducts())
+  }
 
 // populateProducts = () => {
 //   var selectProductsDiv = document.getElementsByClassName("orderList")
@@ -91,7 +157,12 @@ loadProducts = () => {
   .then(res => this.setState({products: res}))
 
 }
+loadUsers = () => {
+  fetch(usersAPI)
+  .then(res => res.json())
+  .then(res => this.setState({users: res}))
 
+}
 menus = () => {
   for (let i = 0; i < this.state.users.length; i++) {
       var dropdownMenu = document.createElement("option")
@@ -117,11 +188,11 @@ menus = () => {
           </div>
         </div></Link>   
           <Route path ="/" exact component={Login} />
-          <Route path ="/signup" render={() => (<Signup users={this.state.users} />)}/>
+          <Route path ="/signup" render={() => (<Signup updateUser={this.updateUser} users={this.state.users} postUser={this.postUser} getFormData={this.getFormData} />)} />
           <Route path ="/mainpage" render={() => (<Mainpage users={this.state.users} products={this.state.products}/>)}/>
-          <Route path ="/addaccount" render={() => (<Addaccount handleInfo={this.handleInfo} users={this.state.users} products={this.state.products}/>)}/>
+          <Route path ="/addaccount" render={() => (<Addaccount handleSelection={this.handleSelection} users={this.state.users} products={this.state.products}/>)}/>
           <Route path ="/addproducts" render={() => (<Addproducts getFormData={this.getFormData} postProduct={this.postProduct} users={this.state.users} products={this.state.products}/>)}/>
-          <Route path ="/filterproducts" render={() => (<Filterproducts users={this.state.users} products={this.state.products}/>)}/>
+          <Route path ="/filterproducts" render={() => (<Filterproducts deleteItem={this.deleteItem} handleSelectedFilter={this.handleSelectedFilter} showFilterItems={this.state.showFilterItems}users={this.state.users} products={this.state.products}/>)}/>
           <Route path ="/orderform" render={() => (<Orderform handleSelected={this.handleSelected} showItems={this.state.showItems}users={this.state.users} products={this.state.products}/>)}/>
           <Route path ="/orderconfirmform" render={() => (<Orderconfirmform users={this.state.users} products={this.state.products}/>)}/>
           <Route path ="/thankyou" render={() => (<Thankyou />)}/>

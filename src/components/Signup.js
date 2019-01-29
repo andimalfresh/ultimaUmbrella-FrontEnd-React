@@ -9,11 +9,11 @@ return (
             <div className="contentDiv">
                 <form>
                     <label>name</label>
-                    <input name="username" className="textInput" placeholder="Username"/>
+                    <input name="user_name"  onChange={props.getFormData }className="textInput" placeholder="Username"/>
                     <label>password</label>
-                    <input name="password" className="textInput" placeholder="Password"/>
+                    <input name="password" onChange={props.getFormData} className="textInput" placeholder="Password"/>
                     <label>company</label>
-                    <input name="password" className="textInput" placeholder="Company"/>
+                    <input name="company_acct_name" onChange={props.getFormData} className="textInput" placeholder="Company"/>
 
                     <label>Distributor ?</label>
                     <div className="distributor">
@@ -45,17 +45,17 @@ return (
 
 
                     <label>email</label>
-                    <input name="email" className="textInput" placeholder="Email"/>
+                    <input name="email_address1" onChange={props.getFormData} className="textInput" placeholder="Email"/>
                     <label>phonenumber</label>
-                    <input name="phone" className="textInput" placeholder="Phonenumber"/>
+                    <input name="phone_number1" onChange={props.getFormData} className="textInput" placeholder="Phonenumber"/>
                     <label>mailing address</label>
-                    <input name="mailing" className="textInput" placeholder="Mailing Address"/>
+                    <input name="mailing_address" onChange={props.getFormData} className="textInput" placeholder="Mailing Address"/>
                     <label>delivery address</label>
-                    <input name="delivery" className="textInput" placeholder="Delivery Address"/>
+                    <input name="delivery_address" onChange={props.getFormData} className="textInput" placeholder="Delivery Address"/>
                 </form>
                 <div className="buttonRow">
-                    <Link to={"/mainpage"}><button>Update</button></Link>
-                    <Link to={"/mainpage"}><button>Signup</button></Link>
+                    <Link to={"/mainpage"}><button onClick={props.updateUser}>Update</button></Link>
+                    <Link to={"/mainpage"}><button onClick={props.postUser}>Signup</button></Link>
                 </div>
             </div>
         </div>

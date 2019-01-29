@@ -8,9 +8,9 @@ return (
     <div className="componentContainer">
         Add Account 
         <div className="contentDiv">
-        <select value={props.value} onChange={props.handleInfo}>
-                    <option className="dropOpening" defaultValue>Select An Distributor.</option>
-            {props.users.map((users) => <option className="accountOption" onClick={props.handleChange}>{users.company_acct_name}</option>)}
+        <select value={props.value} onChange={props.handleSelection}>
+                    <option className="dropOpening" defaultValue disabled selected>Select An Distributor.</option>
+            {props.users.map((users) => <option className="accountOption">{users.company_acct_name}</option>)}
             </select>
             <div className="accountInfoDiv"></div>
             <div className="buttonRow">
