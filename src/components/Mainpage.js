@@ -8,7 +8,7 @@ return (
             Select Option Below
         <div className="contentDiv">
             <div className="buttonRow">
-                <Link to={"/orderform"}><button>Make Order</button></Link>
+                <Link to={"/orderform"}><button>Place Order</button></Link>
                 <Link to={"/addaccount"}><button>Add Account</button></Link>
                 <Link to={"/addproducts"}><button>Add Products</button></Link>
                 <Link to={"/signup"}><button>Edit Info</button></Link>

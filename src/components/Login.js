@@ -8,9 +8,9 @@ return (
             <div className="contentDiv">
                 <form className="loginForm">
                     <label>Login:</label>
-                    <input name="login" placeholder="enter username"/>
+                    <input name="login" placeholder="enter username" className="textInput" />
                     <label>Password:</label>
-                    <input name="password" placeholder="enter password" crypt="bcrypt"  work="cost:11" salt="username"/>
+                    <input name="password" placeholder="enter password" className="textInput" crypt="bcrypt"  work="cost:11" salt="username"/>
                 </form>
                 <div className="buttonRow">
                         <Link to={"/mainpage"}><button>Login</button></Link>
