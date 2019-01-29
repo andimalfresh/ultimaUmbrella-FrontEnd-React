@@ -8,8 +8,8 @@ return (
         Please Confirm your Order
         <div className="contentDiv">
             <div className="buttonRow">
-                    <Link to={"/orderform"}><button>Go Back</button></Link>
-                    <Link to={"/thankyou"}><button>Place Order</button></Link>
+                    <Link to={"/orderform"}><button className="navButton">Go Back</button></Link>
+                    <Link to={"/thankyou"}><button className="navButton">Place Order</button></Link>
             </div>
         </div>
     </div>

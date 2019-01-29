@@ -21,7 +21,7 @@ return (
             <label>Description</label>
             <input name="description" className="textInput" onChange={props.getFormData} placeholder="enter product description"/>
             <div className="buttonRow">
-            <Link to={"/mainpage"}><button>Main Menu</button></Link>
+            <Link to={"/mainpage"}><button className="navButton">Main Menu</button></Link>
             <input type="submit" className="submitButton" onClick={props.postProduct} value="Save Product" />
             </div>
         </form>

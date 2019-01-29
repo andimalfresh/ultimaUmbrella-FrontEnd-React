@@ -28,7 +28,7 @@ return (
             </select>
         {items}
                 <div className="buttonRow">
-                        <Link to={"/mainpage"}><button>Main Page</button></Link>
+                        <Link to={"/mainpage"}><button className="navButton">Main Page</button></Link>
                 </div>
             </div>
         </div>

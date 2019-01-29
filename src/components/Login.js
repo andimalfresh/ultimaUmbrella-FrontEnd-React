@@ -13,8 +13,8 @@ return (
                     <input name="password" placeholder="enter password" className="textInput" crypt="bcrypt"  work="cost:11" salt="username"/>
                 </form>
                 <div className="buttonRow">
-                        <Link to={"/mainpage"}><button>Login</button></Link>
-                        <Link to={"/signup"}><button>Signup</button></Link>                        
+                        <Link to={"/mainpage"}><button className="navButton">Login</button></Link>
+                        <Link to={"/signup"}><button className="navButton">Signup</button></Link>                        
                 </div>
             </div>
         </div>
