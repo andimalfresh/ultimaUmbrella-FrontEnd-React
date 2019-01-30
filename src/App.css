@@ -174,3 +174,21 @@ input.radio {
 .hidden{
   display:none
 }
+.productRow {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.productTotalRow {
+  justify-content: space-between;
+}
+.productTotal , .productTotalPrice {
+  font-weight: bolder;
+}
+.coloredLine {
+  color: red;
+  margin-top: 10px;
+}
+.bottomMessage{
+  margin-top: 25px;
+}

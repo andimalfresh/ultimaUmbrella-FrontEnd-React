@@ -37,7 +37,7 @@ class App extends Component {
       is_used: true,
       showItems: false,
       showFilterItems: false,
-      showAccounts:true,
+      showAccount:false,
       user_name: "",
       password: "",
       company_acct_name: "",
@@ -73,6 +73,11 @@ class App extends Component {
   handleSelectedFilter = () => {
     this.setState({
         showFilterItems:true
+    })
+  }
+  handleSelectedAccount = () => {
+    this.setState({
+        showAccount:true
     })
   }
   postProduct = () => {
@@ -190,12 +195,12 @@ menus = () => {
           <Route path ="/" exact component={Login} />
           <Route path ="/signup" render={() => (<Signup updateUser={this.updateUser} users={this.state.users} postUser={this.postUser} getFormData={this.getFormData} />)} />
           <Route path ="/mainpage" render={() => (<Mainpage users={this.state.users} products={this.state.products}/>)}/>
-          <Route path ="/addaccount" render={() => (<Addaccount handleSelection={this.handleSelection} users={this.state.users} products={this.state.products}/>)}/>
+          <Route path ="/addaccount" render={() => (<Addaccount handleSelectedAccount={this.handleSelectedAccount} users={this.state.users} products={this.state.products}/>)}/>
           <Route path ="/addproducts" render={() => (<Addproducts getFormData={this.getFormData} postProduct={this.postProduct} users={this.state.users} products={this.state.products}/>)}/>
           <Route path ="/filterproducts" render={() => (<Filterproducts deleteItem={this.deleteItem} handleSelectedFilter={this.handleSelectedFilter} showFilterItems={this.state.showFilterItems}users={this.state.users} products={this.state.products}/>)}/>
           <Route path ="/orderform" render={() => (<Orderform handleSelected={this.handleSelected} showItems={this.state.showItems}users={this.state.users} products={this.state.products}/>)}/>
           <Route path ="/orderconfirmform" render={() => (<Orderconfirmform users={this.state.users} products={this.state.products}/>)}/>
-          <Route path ="/thankyou" render={() => (<Thankyou />)}/>
+          <Route path ="/thankyou" render={() => (<Thankyou users={this.state.users} />)}/>
       </div>
     )
   }
