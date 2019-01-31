@@ -28,7 +28,7 @@ return (
             <div className="buttonRow">
             <Link to={"/mainpage"}><button className="navButton">Main Menu </button></Link>
             <Link to={"/mainpage"}><button className="navButton">Add Account</button></Link> 
-                                    <button className="navButton">Delete Acct</button>
+                                   <button className="navButton">Delete Acct</button>
             </div>
         </div>
     </div>

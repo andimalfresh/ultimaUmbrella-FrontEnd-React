@@ -9,7 +9,7 @@ return (
             <div className="contentDiv">
                 <form>
                     <label>Name</label>
-                    <input name="user_name"  onChange={props.getFormData }className="textInput" placeholder="Username"/>
+                    <input name="user_name"  onChange={props.getFormData } className="textInput" placeholder="Username"/>
                     <label>Password</label>
                     <input name="password" onChange={props.getFormData} className="textInput" placeholder="Password"/>
                     <label>Company</label>

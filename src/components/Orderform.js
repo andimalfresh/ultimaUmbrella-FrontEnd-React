@@ -10,7 +10,7 @@ const Orderform  = props => {
               <li className="orderRow">
                   <div className="orderItem">{prods.product_name}</div>
                   <div className="quantityDiv">Qty: 
-                      <input name="quantity" className="quantityInput" placeholder="#"/>
+                      <input name="quantity" className="quantityInput"  value = "3" placeholder="#"/>
                   </div>
               </li>
           </ul>
